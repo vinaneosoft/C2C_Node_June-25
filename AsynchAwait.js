@@ -19,7 +19,6 @@ let fetchData2=()=>{
     return promise;
 }
 
-
 async function fetch1(){
     /*synchronous */
    const data1=  await fetchData1();
