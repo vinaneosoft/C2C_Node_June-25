@@ -4,7 +4,7 @@ let fetchData1=()=>{
         setTimeout(()=>{
             data1="this is data from file 1";
             resolve(data1);
-        },5000) 
+        },1000) 
     });
     return promise; 
 }
@@ -18,15 +18,18 @@ let fetchData2=()=>{
     })
     return promise;
 }
-fetchData1().then((data)=>{
-    console.log(data);
-    return fetchData2();
-}, (errormessage)=>{
-    console.log(errormessage);
-}).then((data)=>{
-    console.log(data);
-},(errormessage)=>{
-    console.log(errormessage);
-})
 
 
+async function fetch1(){
+    /*synchronous */
+   const data1=  await fetchData1();
+   console.log(data1);
+}
+async function fetch2(){
+    const data2= await fetchData2();
+    console.log(data2);
+}
+
+/* asynchronous */
+fetch1();
+fetch2();
